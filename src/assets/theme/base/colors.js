@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Material Dashboard 2 React - v2.2.0
+* PromoSpark React - v2.2.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/material-dashboard-react
@@ -14,9 +14,9 @@ Coded by www.creative-tim.com
 */
 
 /**
- * The base colors for the Material Dashboard 2 React.
+ * The base colors for the PromoSpark React.
  * You can add new color using this file.
- * You can customized the colors for the entire Material Dashboard 2 React using thie file.
+ * You can customized the colors for the entire PromoSpark React using thie file.
  */
 
 const colors = {
@@ -55,8 +55,8 @@ const colors = {
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: "#f47822",
+    focus: "#c65400",
   },
 
   success: {
@@ -108,8 +108,8 @@ const colors = {
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#f47822",
+      state: "#c65400",
     },
 
     success: {
