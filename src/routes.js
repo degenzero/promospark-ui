@@ -38,6 +38,7 @@ Coded by www.creative-tim.com
 // PromoSpark React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
+import Calendar from "layouts/calendar";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
@@ -64,6 +65,14 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/tables",
     component: <Tables />,
+  },
+  {
+    type: "collapse",
+    name: "Calendar",
+    key: "calendar",
+    icon: <Icon fontSize="small">event</Icon>,
+    route: "/calendar",
+    component: <Calendar />,
   },
   {
     type: "collapse",
