@@ -31,3 +31,15 @@ root.render(
     </MaterialUIControllerProvider>
   </BrowserRouter>
 );
+
+// Suppress the common ResizeObserver loop warning in Chrome
+window.addEventListener("error", (event) => {
+  if (
+    event.message &&
+    event.message.includes("ResizeObserver loop completed with undelivered notifications")
+  ) {
+    // Prevent it from bubbling up to the console
+    event.stopImmediatePropagation();
+    event.preventDefault();
+  }
+});

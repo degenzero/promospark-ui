@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 /**
 =========================================================
 * PromoSpark React - v2.2.0
@@ -14,7 +15,7 @@ Coded by www.creative-tim.com
 */
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -25,6 +26,7 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
+import { supabase } from "../../../supabaseClient";
 
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
@@ -33,6 +35,32 @@ import CoverLayout from "layouts/authentication/components/CoverLayout";
 import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
 function Cover() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setErrorMsg("Passwords do not match");
+      return;
+    }
+    setErrorMsg("");
+    setLoading(true);
+    const { error } = await supabase.auth.signUp({ email, password });
+    setLoading(false);
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      setSuccessMsg("Sign-up successful! Check your email to confirm.");
+      setTimeout(() => navigate("/authentication/sign-in"), 2000);
+    }
+  };
+
   return (
     <CoverLayout image={bgImage}>
       <Card>
@@ -55,15 +83,42 @@ function Cover() {
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
+          <MDBox component="form" role="form" onSubmit={handleSignUp}>
             <MDBox mb={2}>
               <MDInput type="text" label="Name" variant="standard" fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" variant="standard" fullWidth />
+              <MDInput
+                type="email"
+                label="Email"
+                variant="standard"
+                fullWidth
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" variant="standard" fullWidth />
+              <MDInput
+                type="password"
+                label="Password"
+                variant="standard"
+                fullWidth
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </MDBox>
+            <MDBox mb={2}>
+              <MDInput
+                type="password"
+                label="Confirm Password"
+                variant="standard"
+                fullWidth
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Checkbox />
@@ -86,9 +141,19 @@ function Cover() {
                 Terms and Conditions
               </MDTypography>
             </MDBox>
+            {errorMsg && (
+              <MDTypography color="error" variant="body2" sx={{ mt: 2 }}>
+                {errorMsg}
+              </MDTypography>
+            )}
+            {successMsg && (
+              <MDTypography color="success" variant="body2" sx={{ mt: 2 }}>
+                {successMsg}
+              </MDTypography>
+            )}
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+              <MDButton variant="gradient" color="info" fullWidth type="submit" disabled={loading}>
+                {loading ? "Signing up…" : "sign up"}
               </MDButton>
             </MDBox>
             <MDBox mt={3} mb={1} textAlign="center">

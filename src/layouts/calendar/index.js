@@ -4,6 +4,9 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 
+import ProtectedRoute from "components/ProtectedRoute";
+import AuthContent from "components/AuthContent";
+
 // @mui/material components
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
@@ -156,74 +159,75 @@ function Calendar() {
                     </MDTypography>
                   </MDBox>
                 </Modal>
-
-                {/* Launch Calendar */}
-                <MDBox
-                  sx={{
-                    "& .fc-toolbar-title": {
-                      color: (theme) => theme.palette.text.primary,
-                      fontWeight: "bold",
-                      fontFamily: (theme) => theme.typography.fontFamily,
-                      fontSize: "1.625rem",
-                      letterSpacing: "0.015em",
-                    },
-                    "& .fc-button": {
-                      backgroundColor: (theme) => theme.palette.info.main,
-                      color: "white",
-                      border: "none",
-                      borderRadius: "4px",
-                      padding: "4px 8px",
-                      textTransform: "capitalize",
-                      fontFamily: (theme) => theme.typography.fontFamily,
-                      fontSize: "0.875rem",
-                    },
-                    "& .fc-button:hover": {
-                      backgroundColor: (theme) => theme.palette.info.dark,
-                    },
-                    // Custom active color for FullCalendar view buttons
-                    "& .fc-button.fc-button-active": {
-                      backgroundColor: "#3f3f3f",
-                      color: "white",
-                    },
-                    "& .fc-today-button": {
-                      backgroundColor: "#66BB6A",
-                      color: "white",
-                    },
-                    "& .fc-today-button:hover": {
-                      backgroundColor: "#4e9951",
-                    },
-                    "& .fc-event": {
-                      backgroundColor: (theme) => theme.palette.info.main,
-                      color: "white",
-                      border: "none",
-                      fontSize: "0.85rem",
-                      paddingLeft: (theme) => theme.spacing(2),
-                      paddingRight: (theme) => theme.spacing(2),
-                    },
-                    "& .fc-event-title": {
-                      color: "white",
-                    },
-                    "& .fc-toolbar-title, & .fc-col-header-cell-cushion, & .fc-daygrid-day-number":
-                      {
-                        color: "#344767",
+                <AuthContent>
+                  {/* Launch Calendar */}
+                  <MDBox
+                    sx={{
+                      "& .fc-toolbar-title": {
+                        color: (theme) => theme.palette.text.primary,
+                        fontWeight: "bold",
+                        fontFamily: (theme) => theme.typography.fontFamily,
+                        fontSize: "1.625rem",
+                        letterSpacing: "0.015em",
                       },
-                    "& .fc-day-today": {
-                      backgroundColor: (theme) => theme.palette.info.light,
-                    },
-                  }}
-                >
-                  <FullCalendar
-                    plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-                    initialView="dayGridMonth"
-                    headerToolbar={{
-                      left: "prev,next today",
-                      center: "title",
-                      right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+                      "& .fc-button": {
+                        backgroundColor: (theme) => theme.palette.info.main,
+                        color: "white",
+                        border: "none",
+                        borderRadius: "4px",
+                        padding: "4px 8px",
+                        textTransform: "capitalize",
+                        fontFamily: (theme) => theme.typography.fontFamily,
+                        fontSize: "0.875rem",
+                      },
+                      "& .fc-button:hover": {
+                        backgroundColor: (theme) => theme.palette.info.dark,
+                      },
+                      // Custom active color for FullCalendar view buttons
+                      "& .fc-button.fc-button-active": {
+                        backgroundColor: "#3f3f3f",
+                        color: "white",
+                      },
+                      "& .fc-today-button": {
+                        backgroundColor: "#66BB6A",
+                        color: "white",
+                      },
+                      "& .fc-today-button:hover": {
+                        backgroundColor: "#4e9951",
+                      },
+                      "& .fc-event": {
+                        backgroundColor: (theme) => theme.palette.info.main,
+                        color: "white",
+                        border: "none",
+                        fontSize: "0.85rem",
+                        paddingLeft: (theme) => theme.spacing(2),
+                        paddingRight: (theme) => theme.spacing(2),
+                      },
+                      "& .fc-event-title": {
+                        color: "white",
+                      },
+                      "& .fc-toolbar-title, & .fc-col-header-cell-cushion, & .fc-daygrid-day-number":
+                        {
+                          color: "#344767",
+                        },
+                      "& .fc-day-today": {
+                        backgroundColor: (theme) => theme.palette.info.light,
+                      },
                     }}
-                    height="60vh"
-                    events={launchEvents}
-                  />
-                </MDBox>
+                  >
+                    <FullCalendar
+                      plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
+                      initialView="dayGridMonth"
+                      headerToolbar={{
+                        left: "prev,next today",
+                        center: "title",
+                        right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+                      }}
+                      height="60vh"
+                      events={launchEvents}
+                    />
+                  </MDBox>
+                </AuthContent>
               </MDBox>
             </Card>
           </Grid>

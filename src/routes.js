@@ -113,6 +113,7 @@ const routes = [
     icon: <Icon fontSize="small">login</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
+    guestOnly: true,
   },
   {
     type: "collapse",
@@ -121,6 +122,15 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
+    guestOnly: true,
+  },
+  {
+    type: "collapse",
+    name: "Log Out",
+    key: "logout",
+    icon: <Icon fontSize="small">logout</Icon>,
+    action: "logout",
+    requiresAuth: true,
   },
 ];
 

@@ -1,6 +1,7 @@
 {
-  "name": "material-dashboard-2-react",
+  "name": "PromoSpark",
   "version": "2.2.0",
+  "homepage": "https://promospark.ai/dashboard",
   "private": true,
   "author": "Creative Tim",
   "license": "See license in https://www.creative-tim.com/license",
@@ -23,6 +24,7 @@
     "@fullcalendar/timegrid": "^6.1.17",
     "@mui/icons-material": "5.11.16",
     "@mui/material": "5.12.3",
+    "@supabase/supabase-js": "^2.49.4",
     "chart.js": "4.3.0",
     "chroma-js": "2.4.2",
     "prop-types": "15.8.1",
