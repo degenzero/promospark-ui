@@ -29,10 +29,10 @@ import MDButton from "components/MDButton";
 import { supabase } from "../../../supabaseClient";
 
 // Authentication layout components
-import CoverLayout from "layouts/authentication/components/CoverLayout";
+import CoverLayout from "layouts/auth/components/BasicLayout";
 
 // Images
-import bgImage from "assets/images/bg-sign-up-cover.jpeg";
+import bgImage from "assets/images/promospark-bg.jpeg";
 
 function Cover() {
   const navigate = useNavigate();
@@ -56,8 +56,8 @@ function Cover() {
     if (error) {
       setErrorMsg(error.message);
     } else {
-      setSuccessMsg("Sign-up successful! Check your email to confirm.");
-      setTimeout(() => navigate("/authentication/sign-in"), 2000);
+      setSuccessMsg("register successful! Check your email to confirm.");
+      setTimeout(() => navigate("/auth/login"), 2000);
     }
   };
 
@@ -153,7 +153,7 @@ function Cover() {
             )}
             <MDBox mt={4} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth type="submit" disabled={loading}>
-                {loading ? "Signing up…" : "sign up"}
+                {loading ? "Signing up…" : "Register"}
               </MDButton>
             </MDBox>
             <MDBox mt={3} mb={1} textAlign="center">
@@ -161,7 +161,7 @@ function Cover() {
                 Already have an account?{" "}
                 <MDTypography
                   component={Link}
-                  to="/authentication/sign-in"
+                  to="/auth/login"
                   variant="button"
                   color="info"
                   fontWeight="medium"

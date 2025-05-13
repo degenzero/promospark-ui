@@ -38,7 +38,7 @@ import MDButton from "components/MDButton";
 import { supabase } from "../../../supabaseClient";
 
 // Authentication layout components
-import BasicLayout from "layouts/authentication/components/BasicLayout";
+import BasicLayout from "layouts/auth/components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/promospark-bg.jpeg";
@@ -150,7 +150,7 @@ function Basic() {
                 Don&apos;t have an account?{" "}
                 <MDTypography
                   component={Link}
-                  to="/authentication/sign-up"
+                  to="/auth/register"
                   variant="button"
                   color="info"
                   fontWeight="medium"

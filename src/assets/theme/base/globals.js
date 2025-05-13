@@ -36,6 +36,9 @@ const globals = {
   "a.link:hover, .link:hover, a.link:focus, .link:focus": {
     color: `${info.main} !important`,
   },
+  "iframe#webpack-dev-server-client-overlay": {
+    display: "none !important",
+  },
 };
 
 export default globals;

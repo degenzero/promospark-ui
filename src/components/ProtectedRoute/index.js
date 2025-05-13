@@ -6,7 +6,7 @@ import { supabase } from "../../supabaseClient";
 
 /**
  * A wrapper for routes that require an authenticated user.
- * If no valid Supabase session exists, it redirects to sign-in.
+ * If no valid Supabase session exists, it redirects to login.
  */
 export default function ProtectedRoute({ children }) {
   const [loading, setLoading] = useState(true);
@@ -37,9 +37,9 @@ export default function ProtectedRoute({ children }) {
     return null;
   }
 
-  // If no user, redirect to sign-in
+  // If no user, redirect to login
   if (!session) {
-    return <Navigate to="/authentication/sign-in" replace />;
+    return <Navigate to="/auth/login" replace />;
   }
 
   // Authenticated, render child routes

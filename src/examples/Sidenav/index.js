@@ -121,7 +121,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
               sx={{ cursor: "pointer", width: "100%" }}
               onClick={async () => {
                 await supabase.auth.signOut();
-                navigate("/authentication/sign-in");
+                navigate("/auth/login");
               }}
             >
               <SidenavCollapse

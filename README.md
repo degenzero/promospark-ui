@@ -72,8 +72,8 @@ Let us know your thoughts below. And good luck with development!
 - [Dashboard](http://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-sudr)
 - [Profile](https://demos.creative-tim.com/material-dashboard-react/#/profile?ref=readme-sudr)
 - [RTL](https://demos.creative-tim.com/material-dashboard-react/#/rtl?ref=readme-sudr)
-- [Sign In](https://demos.creative-tim.com/material-dashboard-react/#/authentication/sign-in?ref=readme-sudr)
-- [Sign Up](https://demos.creative-tim.com/material-dashboard-react/#/authentication/sign-up?ref=readme-sudr)
+- [Sign In](https://demos.creative-tim.com/material-dashboard-react/#/auth/login?ref=readme-sudr)
+- [Sign Up](https://demos.creative-tim.com/material-dashboard-react/#/auth/register?ref=readme-sudr)
 
 [View More](https://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-mdr).
 
@@ -151,7 +151,7 @@ material-dashboard-react
     │   │   ├── Tables
     │   │   └── Timeline
     │   ├── layouts
-    │   │   ├── authentication
+    │   │   ├── auth
     │   │   ├── billing
     │   │   ├── dashboard
     │   │   ├── notifications

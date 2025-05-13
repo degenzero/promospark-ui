@@ -43,8 +43,8 @@ import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
-import SignIn from "layouts/authentication/sign-in";
-import SignUp from "layouts/authentication/sign-up";
+import SignIn from "layouts/auth/login";
+import SignUp from "layouts/auth/register";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -108,19 +108,19 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
+    name: "Login",
+    key: "login",
     icon: <Icon fontSize="small">login</Icon>,
-    route: "/authentication/sign-in",
+    route: "/auth/login",
     component: <SignIn />,
     guestOnly: true,
   },
   {
     type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
+    name: "Register",
+    key: "register",
     icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
+    route: "/auth/register",
     component: <SignUp />,
     guestOnly: true,
   },
